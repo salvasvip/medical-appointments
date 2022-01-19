@@ -15,6 +15,8 @@ function App() {
         upddateAppointments(newAppointments)
     }
 
+    const secondTitle = appointments.length === 0 ? 'nothing scheduled yet' : 'scheduled appointments'
+
     return (
         <Fragment>
             <h1>Patient Manager</h1>
@@ -25,7 +27,7 @@ function App() {
                     />
                 </div>
                 <div className="one-half column">
-                    <h2>Scheduled Appointments</h2>
+                    <h2>{secondTitle}</h2>
                     {appointments.map(appointment => (
                         <Appointment
                             key={appointment.id}

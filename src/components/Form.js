@@ -17,6 +17,7 @@ const Form = ({createAppointment}) => {
             ...appointment,
             [e.target.name]: e.target.value
         })
+        updateError(false)
     }
 
     const {pet, owner, date, time, symptoms} = appointment
@@ -27,7 +28,6 @@ const Form = ({createAppointment}) => {
             updateError(true)
             return
         }
-        updateError(false)
         appointment.id = uuidv4()
         createAppointment(appointment)
         upddateAppointment({

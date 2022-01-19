@@ -30,6 +30,13 @@ const Form = ({createAppointment}) => {
         updateError(false)
         appointment.id = uuidv4()
         createAppointment(appointment)
+        upddateAppointment({
+            pet: '',
+            owner: '',
+            date: '',
+            time: '',
+            symptoms: ''
+        })
     }
 
     return (

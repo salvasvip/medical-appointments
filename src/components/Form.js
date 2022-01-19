@@ -1,4 +1,5 @@
 import {Fragment, useState} from "react";
+import {v4 as uuidv4} from 'uuid';
 
 const Form = () => {
     const [appointment, upddateAppointment] = useState({
@@ -26,6 +27,8 @@ const Form = () => {
             updateError(true)
             return
         }
+        updateError(false)
+        appointment.id = uuidv4()
     }
 
     return (

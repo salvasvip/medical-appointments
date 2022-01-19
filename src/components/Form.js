@@ -9,6 +9,8 @@ const Form = () => {
         symptoms: ''
     })
 
+    const [error, updateError] = useState(false)
+
     const handleChange = e => {
         upddateAppointment({
             ...appointment,
@@ -18,10 +20,24 @@ const Form = () => {
 
     const {pet, owner, date, time, symptoms} = appointment
 
+    const submitAppointment = e => {
+        e.preventDefault()
+        if (pet.trim() === '' || owner.trim() === '' || date.trim() === '' || time.trim() === '' || symptoms.trim() === '') {
+            updateError(true)
+            return
+        }
+    }
+
     return (
         <Fragment>
             <h2>New Date</h2>
-            <form action="">
+            {
+                error ?
+                    <p className="alerta-error">Complete all the information</p>
+                    :
+                    null
+            }
+            <form onSubmit={submitAppointment}>
                 <label htmlFor="">Pet's name</label>
                 <input
                     type="text"

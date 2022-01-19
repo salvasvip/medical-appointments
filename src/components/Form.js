@@ -9,9 +9,14 @@ const Form = () => {
         symptoms: ''
     })
 
-    const handleChange = () => {
-        console.log('typing...')
+    const handleChange = e => {
+        upddateAppointment({
+            ...appointment,
+            [e.target.name]: e.target.value
+        })
     }
+
+    const {pet, owner, date, time, symptoms} = appointment
 
     return (
         <Fragment>
@@ -24,6 +29,7 @@ const Form = () => {
                     className="u-full-width"
                     placeholder="Teddy"
                     onChange={handleChange}
+                    value={pet}
                 />
                 <label htmlFor="">Owner name</label>
                 <input
@@ -32,6 +38,7 @@ const Form = () => {
                     className="u-full-width"
                     placeholder="John Doe"
                     onChange={handleChange}
+                    value={owner}
                 />
                 <label htmlFor="">Date</label>
                 <input
@@ -39,6 +46,7 @@ const Form = () => {
                     name="date"
                     className="u-full-width"
                     onChange={handleChange}
+                    value={date}
                 />
                 <label htmlFor="">Time</label>
                 <input
@@ -46,6 +54,7 @@ const Form = () => {
                     name="time"
                     className="u-full-width"
                     onChange={handleChange}
+                    value={time}
                 />
                 <label htmlFor="">Symptoms</label>
                 <textarea
@@ -53,6 +62,7 @@ const Form = () => {
                     id="symptoms"
                     className="u-full-width"
                     onChange={handleChange}
+                    value={symptoms}
                 />
                 <button
                     type="submit"

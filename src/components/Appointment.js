@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types'
+
 const Appointment = ({appointment, deleteAppointment}) => {
     const {id, pet, owner, date, time, symptoms} = appointment
     return (
@@ -15,4 +17,8 @@ const Appointment = ({appointment, deleteAppointment}) => {
     )
 }
 
+Appointment.propTypes = {
+    appointment: PropTypes.object.isRequired,
+    deleteAppointment: PropTypes.func.isRequired
+}
 export default Appointment
